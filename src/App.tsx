@@ -1,21 +1,20 @@
 import { useState } from 'react'
-import './App.css'
-import { Button, MantineProvider, Text } from '@mantine/core';
+import { Button, MantineProvider, Stack, Text } from '@mantine/core';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS>
-      <div>
-        <img src="/prufen.svg" className="logo" alt="Prufen logo" />
-      </div>
-      <Text>Prufen</Text>
-      <div className="card">
+      <Stack align="center" mt={50}>
+        <div>
+          <img src="/prufen.svg" className="logo" alt="Prufen logo" />
+        </div>
+        <Text>Prufen</Text>
         <Button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </Button>
-      </div>
+      </Stack>
     </MantineProvider>
   )
 }
