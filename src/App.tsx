@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button, Center, ColorScheme, ColorSchemeProvider, Group, Header, MantineProvider, Stack, Text, ActionIcon, useMantineColorScheme } from '@mantine/core';
+import { Button, ColorScheme, ColorSchemeProvider, Group, Header, MantineProvider, Stack, Text, ActionIcon, useMantineColorScheme } from '@mantine/core';
 import { IconSun, IconMoonStars } from '@tabler/icons';
 
 function ColorThemeSwitcher() {
