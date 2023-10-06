@@ -13,3 +13,7 @@ Build production version in `dist/`:
 ```
 $ npm run build
 ```
+
+## Deployment
+
+`main` branch deployed to GitHub pages as https://dash.prufen.dev/ using GitHub Workflow configured in this repository.
