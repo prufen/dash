@@ -15,7 +15,7 @@
     "@mantine/core": "^7.1.2",
     "@mantine/hooks": "^7.1.2",
     "@octokit/graphql-schema": "^14.33.1",
-    "@tabler/icons": "^1.110.0",
+    "@tabler/icons-react": "^2.38.0",
     "graphql": "^16.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

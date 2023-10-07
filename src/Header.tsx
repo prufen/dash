@@ -1,5 +1,5 @@
 import { Container, Group, Text, ActionIcon, useMantineColorScheme } from '@mantine/core';
-import { IconSun, IconMoonStars } from '@tabler/icons';
+import { IconSun, IconMoonStars } from '@tabler/icons-react';
 import classes from './Header.module.css';
 
 function ColorThemeSwitcher() {
