@@ -12,8 +12,8 @@
   "dependencies": {
     "@apollo/client": "^3.7.1",
     "@emotion/react": "^11.10.5",
-    "@mantine/core": "^5.7.1",
-    "@mantine/hooks": "^5.7.1",
+    "@mantine/core": "^7.1.2",
+    "@mantine/hooks": "^7.1.2",
     "@octokit/graphql-schema": "^12.22.0",
     "@tabler/icons": "^1.110.0",
     "graphql": "^16.6.0",
@@ -30,6 +30,9 @@
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "postcss": "^8.4.31",
+    "postcss-preset-mantine": "^1.8.0",
+    "postcss-simple-vars": "^7.0.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   }
