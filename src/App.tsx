@@ -1,11 +1,11 @@
-import '@mantine/core/styles.css';
+import "@mantine/core/styles.css";
 
-import { useState } from 'react'
-import { Button, MantineProvider, Stack } from '@mantine/core';
-import Header from './Header';
+import { useState } from "react";
+import { Button, MantineProvider, Stack } from "@mantine/core";
+import Header from "./Header";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <MantineProvider>
@@ -16,7 +16,7 @@ function App() {
         </Button>
       </Stack>
     </MantineProvider>
-  )
+  );
 }
 
-export default App
+export default App;
