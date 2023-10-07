@@ -5,6 +5,9 @@ import App from "./App";
 import ErrorPage from "./ErrorPage";
 import "./index.css";
 
+// Using HashRouter router as the app will be hosted on GitHub Pages, which
+// doesn't easily support BrowserRouter:
+// https://github.com/orgs/community/discussions/36010
 const router = createHashRouter([
   {
     path: "/",
