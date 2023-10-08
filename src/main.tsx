@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
+import AppIndex from "./AppIndex";
 import ErrorPage from "./ErrorPage";
 import Assignment, { loadAssignment } from "./Assignment";
 
@@ -14,6 +15,10 @@ const router = createHashRouter([
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
+      {
+        path: "",
+        element: <AppIndex />,
+      },
       {
         path: "/assignments/:repoPrefix",
         element: <Assignment />,
