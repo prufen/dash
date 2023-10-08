@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import ErrorPage from "./ErrorPage";
+import Assignment, { loadAssignment } from "./Assignment";
 
 // Using HashRouter router as the app will be hosted on GitHub Pages, which
 // doesn't easily support BrowserRouter:
@@ -12,6 +13,15 @@ const router = createHashRouter([
     path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/assignments/:repoPrefix",
+        element: <Assignment />,
+        // TODO: workarounding lack of typing here:
+        // https://github.com/remix-run/react-router/discussions/9792
+        loader: async ({ params }) => loadAssignment(params.repoPrefix!),
+      },
+    ],
   },
 ]);
 

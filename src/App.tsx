@@ -1,22 +1,14 @@
 import "@mantine/core/styles.css";
 
-import { useState } from "react";
-import { Button, MantineProvider, Stack } from "@mantine/core";
+import { Outlet } from "react-router-dom";
+import { MantineProvider } from "@mantine/core";
 import Header from "./Header";
 
-function App() {
-  const [count, setCount] = useState(0);
-
+export default function App() {
   return (
     <MantineProvider>
       <Header />
-      <Stack align="center" mt={50}>
-        <Button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </Button>
-      </Stack>
+      <Outlet />
     </MantineProvider>
   );
 }
-
-export default App;
