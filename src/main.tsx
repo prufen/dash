@@ -6,6 +6,12 @@ import AppIndex from "./AppIndex";
 import Login from "./Login";
 import ErrorPage from "./ErrorPage";
 import Assignment, { loadAssignment } from "./Assignment";
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+
+const queryClient = new QueryClient();
 
 // Using HashRouter router as the app will be hosted on GitHub Pages, which
 // doesn't easily support BrowserRouter:
@@ -37,6 +43,8 @@ const router = createHashRouter([
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   </React.StrictMode>
 );
