@@ -53,6 +53,8 @@ export default function Login() {
   const [stateToken, setStateToken] = useState(getToken());
   const [displayFetchResult, setDisplayFetchResult] = useState(false);
   const [resp, setResp] = useState<Resp>({});
+  /* Disable Remove button if no token stored */
+  const [clearDisabled, setClearDisabled] = useState(getToken() == "");
 
   return (
     <>
@@ -82,6 +84,7 @@ export default function Login() {
         <Button
           onClick={async () => {
             setToken(stateToken);
+            setClearDisabled(getToken() == "");
             setDisplayFetchResult(true);
             setResp({});
             const response = await fetch("https://api.github.com/rate_limit", {
@@ -99,12 +102,10 @@ export default function Login() {
           Save and test
         </Button>
         <Button
-          disabled={
-            /* Disable Remove button if no token stored */
-            getToken() == ""
-          }
+          disabled={clearDisabled}
           onClick={() => {
             clearToken();
+            setClearDisabled(true);
             setStateToken("");
             setDisplayFetchResult(false);
           }}
