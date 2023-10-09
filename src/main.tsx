@@ -7,11 +7,35 @@ import Login from "./Login";
 import ErrorPage from "./ErrorPage";
 import Assignment, { loadAssignment } from "./Assignment";
 import {
-  QueryClient,
-  QueryClientProvider,
-} from '@tanstack/react-query'
+  ApolloClient,
+  InMemoryCache,
+  createHttpLink,
+  ApolloProvider,
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { getToken } from "./authToken";
 
 const queryClient = new QueryClient();
+
+const httpLink = createHttpLink({
+  uri: "https://api.github.com/graphql",
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = getToken();
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
+
+const apolloClient = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
 
 // Using HashRouter router as the app will be hosted on GitHub Pages, which
 // doesn't easily support BrowserRouter:
@@ -44,7 +68,9 @@ const router = createHashRouter([
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <ApolloProvider client={apolloClient}>
+        <RouterProvider router={router} />
+      </ApolloProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );
