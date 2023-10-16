@@ -53,6 +53,7 @@ export default function LoggedInProfile() {
     return <Text>Loading...</Text>;
   }
 
+  // TODO: Handle the case when the user is out of tokens.
   // Looks like type assertions are necessary here:
   // https://github.com/apollographql/apollo-link/issues/300#issuecomment-518445337
   if (
