@@ -8,6 +8,7 @@ import {
 import { IconSun, IconMoonStars } from "@tabler/icons-react";
 import classes from "./Header.module.css";
 import LoggedInProfile from "./LoggedInProfile";
+import { Link } from "react-router-dom";
 
 function ColorThemeSwitcher() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
@@ -29,7 +30,9 @@ function PrufenLogo() {
   return (
     <Group>
       <img src="/prufen.svg" className="logo" alt="Prufen logo" />
-      <Text>Prufen</Text>
+      <Text component={Link} to="/">
+        Prufen
+      </Text>
     </Group>
   );
 }
