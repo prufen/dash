@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useQuery, gql } from "@apollo/client";
-import { Query } from "@octokit/graphql-schema";
 import {
   IconLogout,
   IconInfoCircle,
@@ -45,8 +44,7 @@ export default function LoggedInProfile() {
     return <LoginButton />;
   }
 
-  const { loading, error, data } =
-    useQuery<Pick<Query, "viewer">>(loggedInProfileQuery);
+  const { loading, error, data } = useQuery(loggedInProfileQuery);
   const [userMenuOpened, setUserMenuOpened] = useState(false);
 
   if (loading) {
@@ -76,6 +74,7 @@ export default function LoggedInProfile() {
   }
 
   const { login, url, name, avatarUrl } = data!.viewer;
+  const { remaining, limit, resetAt } = data.rateLimit;
 
   // TODO: Display rate limits.
   // TODO: Implement Logout button.
@@ -129,6 +128,10 @@ export default function LoggedInProfile() {
             }
           >
             {name}
+          </Menu.Item>
+          <Menu.Item disabled>
+            {remaining} of {limit} tokens remaining<br />
+            Reset at {resetAt}
           </Menu.Item>
           <Menu.Item
             leftSection={
