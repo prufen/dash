@@ -7,6 +7,7 @@ import {
 } from "@mantine/core";
 import { IconSun, IconMoonStars } from "@tabler/icons-react";
 import classes from "./Header.module.css";
+import LoggedInProfile from "./LoggedInProfile";
 
 function ColorThemeSwitcher() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
@@ -38,7 +39,10 @@ export default function Header() {
     <header className={classes.header}>
       <Container size="md" className={classes.inner}>
         <PrufenLogo />
-        <ColorThemeSwitcher />
+        <Group>
+          <LoggedInProfile />
+          <ColorThemeSwitcher />
+        </Group>
       </Container>
     </header>
   );
