@@ -60,12 +60,13 @@ export default function Login() {
     <>
       <Text>
         Access token is stored in the browser local storage and used for
-        querying GitHub repositories details. GitHub Personal Access Token can
-        be{" "}
+        querying GitHub repositories details. GitHub{" "}
         <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">
-          generated
+          Personal Access Token
         </a>{" "}
-        or obtained through OAuth. Treat it like a password.
+        can be{" "}
+        <a href="https://github.com/settings/tokens?type=beta">generated</a> or
+        obtained through OAuth. Treat it like a password.
       </Text>
       <Space h="lg" />
       <PasswordInput
