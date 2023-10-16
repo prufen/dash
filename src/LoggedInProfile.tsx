@@ -114,6 +114,10 @@ export default function LoggedInProfile() {
           </UnstyledButton>
         </Menu.Target>
         <Menu.Dropdown>
+          {
+            // Specifying "noopener" to avoid leaking current context:
+            // https://developer.mozilla.org/en-US/docs/Web/API/Window/open#noopener
+          }
           <Menu.Item
             leftSection={
               <IconInfoCircle
@@ -121,16 +125,16 @@ export default function LoggedInProfile() {
                 stroke={1.5}
               />
             }
-            onClick={
-              // Specifying "noopener" to avoid leaking current context:
-              // https://developer.mozilla.org/en-US/docs/Web/API/Window/open#noopener
-              () => window.open(url, "_blank", "noopener")
-            }
+            component="a"
+            href={url}
+            target="_blank"
+            rel="noopener"
           >
             {name}
           </Menu.Item>
           <Menu.Item disabled>
-            {remaining} of {limit} tokens remaining<br />
+            {remaining} of {limit} tokens remaining
+            <br />
             Reset at {resetAt}
           </Menu.Item>
           <Menu.Item
