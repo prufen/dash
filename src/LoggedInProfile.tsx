@@ -16,6 +16,7 @@ import {
 } from "@mantine/core";
 import { getToken } from "./authToken";
 import classes from "./LoggedInProfile.module.css";
+import { Link } from "react-router-dom";
 
 const loggedInProfileQuery = gql`
   query {
@@ -35,7 +36,7 @@ const loggedInProfileQuery = gql`
 `;
 
 function LoginButton() {
-  return <Button variant="default">Login</Button>;
+  return <Button variant="default" component={Link} to="/login">Login</Button>;
 }
 
 export default function LoggedInProfile() {
