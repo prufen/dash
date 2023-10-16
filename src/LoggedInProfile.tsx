@@ -51,7 +51,9 @@ export default function LoggedInProfile() {
     return <Text>Loading...</Text>;
   }
 
-  // TODO: Handle the case when the user is out of tokens.
+  // TODO: Handle the case when the user is out of tokens:
+  // https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#exceeding-the-rate-limit
+
   // Looks like type assertions are necessary here:
   // https://github.com/apollographql/apollo-link/issues/300#issuecomment-518445337
   if (
